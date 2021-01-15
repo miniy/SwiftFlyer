@@ -31,7 +31,7 @@ public final class PostCancelAllOrdersRequest: Requestable {
     public var httpBody: Data? {
         var json: [String: Any] = [:]
         json.appendingQueryParameter(key: "product_code", value: productCode)
-        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted])
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
         return jsonData
     }
     

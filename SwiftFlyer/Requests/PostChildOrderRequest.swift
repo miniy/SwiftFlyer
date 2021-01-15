@@ -35,7 +35,7 @@ public final class PostChildOrderRequest: Requestable {
         json.appendingQueryParameter(key: "time_in_force", value: timeInForce)
         json["size"] = "\(size)"
         
-        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted])
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
 
         return jsonData
     }

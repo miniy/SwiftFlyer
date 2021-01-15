@@ -48,7 +48,7 @@ public final class PostIFDOCOOrderRequest: Requestable {
         
         json["parameters"] = parameters
         
-        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted])
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
         
         return jsonData
     }

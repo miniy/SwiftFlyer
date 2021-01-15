@@ -29,7 +29,7 @@ public final class PostWithdrawRequest: Requestable {
         json.appendingQueryParameter(key: "bank_account_id", value: bankAccountID)
         json.appendingQueryParameter(key: "amount", value: amount)
         json.appendingQueryParameter(key: "code", value: code)
-        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted])
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
         return jsonData
     }
     

@@ -35,7 +35,7 @@ public final class PostCancelChildOrderRequest: Requestable {
         json.appendingQueryParameter(key: "child_order_id", value: childOrderID)
         json.appendingQueryParameter(key: "child_order_acceptance_id", value: childOrderAcceptanceID)
 
-        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted])
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
         
         return jsonData
     }
