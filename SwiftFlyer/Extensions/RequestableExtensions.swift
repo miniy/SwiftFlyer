@@ -43,6 +43,9 @@ public extension Requestable {
 
         urlRequest.httpMethod = httpMethod.rawValue
         
+        // sort by key
+        let sortedQueryParameters: Array<(key: String, value: Any)> = queryParameters.sorted { $0.0 < $1.0 }
+
         // Set custom header filed if the request needs authorization.
         if isAuthorizedRequest {
             let timeStamp = String(Date().timeIntervalSince1970)
@@ -53,7 +56,7 @@ public extension Requestable {
                                                        timeStamp: timeStamp,
                                                        method: httpMethod,
                                                        path: path,
-                                                       queryParams: queryParameters,
+                                                       queryParams: sortedQueryParameters,
                                                        body: httpBody)
         }
         
@@ -69,14 +72,14 @@ public extension Requestable {
             return urlRequest
         }
         
-        urlComponents.query = queryParameters
+        urlComponents.query = sortedQueryParameters
             .map { "\($0.key)=\($0.value)" }
             .joined(separator: "&")
         urlRequest.url = urlComponents.url
         return urlRequest
     }
     
-    private func makeAccessSignWith(accessKey: String, timeStamp: String, method: HTTPMethod, path: String, queryParams: [String: Any], body: Data?) -> String? {
+    private func makeAccessSignWith(accessKey: String, timeStamp: String, method: HTTPMethod, path: String, queryParams: Array<(key: String, value: Any)>, body: Data?) -> String? {
         
         var bytes: [UInt8] = []
 
