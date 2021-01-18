@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(iOS 11.0, *)
 public final class PostCancelAllOrdersRequest: Requestable {
     
     public typealias Response = OnlyStatusCodeResponse

@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(iOS 11.0, *)
 public final class PostCancelParentOrderRequest: Requestable {
     
     public typealias Response = OnlyStatusCodeResponse

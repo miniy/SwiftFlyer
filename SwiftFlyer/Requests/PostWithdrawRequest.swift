@@ -7,6 +7,7 @@
 import Foundation
 
 /// SeeAlso: - https://bitflyer.jp/commission?#DepositCancellation
+@available(iOS 11.0, *)
 public final class PostWithdrawRequest: Requestable {
     
     public typealias Response = MessageID
