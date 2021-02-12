@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(iOS 11.0, *)
 public final class PostSimpleOrderRequest: Requestable {
     
     public typealias Response = ParentOrderResult
@@ -43,7 +44,7 @@ public final class PostSimpleOrderRequest: Requestable {
 
         json["parameters"] = [parameter]
         
-        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys])
         
         return jsonData
     }
